@@ -17,7 +17,7 @@ An elegant app to track the viewing probability of the Northern Lights (Aurora B
 
 This project uses a "no-build" setup, relying on modern browser features like **import maps** to load React and other dependencies directly without needing Node.js, npm, or a bundler like Webpack/Vite.
 
-The `process.env.API_KEY` is made available to the application via a small `env.js` script, which is generated during deployment on Netlify or created manually for local development.
+The `process.env.AURORA_API_KEY` is made available to the application via a small `env.js` script, which is generated during deployment on Netlify or created manually for local development.
 
 ## Getting Started
 
@@ -44,7 +44,7 @@ Follow these instructions to get a copy of the project up and running on your lo
     // env.js
     window.process = {
       env: {
-        API_KEY: 'YOUR_API_KEY_HERE'
+        AURORA_API_KEY: 'YOUR_API_KEY_HERE'
       }
     };
     ```
@@ -69,12 +69,12 @@ This project is configured for easy deployment on Netlify.
 2.  Log in to Netlify and click "Add new site" -> "Import an existing project".
 3.  Connect your GitHub account and select your forked repository.
 4.  Configure the build settings:
-    -   **Build command**: `echo "window.process = { env: { API_KEY: '$API_KEY' } };" > env.js`
+    -   **Build command**: `echo "window.process = { env: { AURORA_API_KEY: '$AURORA_API_KEY' } };" > env.js`
     -   **Publish directory**: Leave it as the root directory of your project.
 5.  Add your Gemini API key as an environment variable:
     -   Go to **Site settings > Build & deploy > Environment**.
     -   Click "Edit variables" and add a new variable:
-        -   **Key**: `API_KEY`
+        -   **Key**: `AURORA_API_KEY`
         -   **Value**: Paste your Gemini API key here.
 6.  Click "Deploy site". Netlify will run the build command (which creates the `env.js` file) and deploy your application.
 
@@ -101,7 +101,7 @@ of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+furnished to do so, to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
