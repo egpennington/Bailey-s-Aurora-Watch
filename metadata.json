@@ -1,0 +1,7 @@
+{
+  "name": "Bailey's Aurora Watch",
+  "description": "An elegant app to track the viewing probability of the Northern Lights (Aurora Borealis) in your selected area, powered by Gemini.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
