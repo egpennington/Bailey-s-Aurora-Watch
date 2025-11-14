@@ -1,13 +1,8 @@
-
 import React from 'react';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
-interface GaugeChartProps {
-  value: number;
-}
-
-const GaugeChart: React.FC<GaugeChartProps> = ({ value }) => {
-  const getColor = (val: number) => {
+const GaugeChart = ({ value }) => {
+  const getColor = (val) => {
     if (val > 66) return '#4ade80'; // green-400
     if (val > 33) return '#facc15'; // yellow-400
     return '#f87171'; // red-400

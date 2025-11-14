@@ -1,5 +1,4 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { AuroraForecast } from '../types';
 
 // Fix: Removed API key check to adhere to guidelines, which assume it's always present.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -28,7 +27,7 @@ const auroraForecastSchema = {
 };
 
 
-export const getAuroraForecast = async (latitude: number, longitude: number): Promise<AuroraForecast> => {
+export const getAuroraForecast = async (latitude, longitude) => {
   const prompt = `Analyze meteorological and space weather data to provide a Northern Lights (Aurora Borealis) viewing forecast for the location with latitude ${latitude} and longitude ${longitude}. Consider all relevant factors, including geomagnetic activity (Kp-index), cloud cover, solar wind speed, and moon phase. Provide the output in a structured JSON format according to the provided schema. The summary should be concise and helpful for a casual observer.`;
 
   try {
@@ -54,7 +53,7 @@ export const getAuroraForecast = async (latitude: number, longitude: number): Pr
       throw new Error("Received malformed data from API.");
     }
 
-    return parsedData as AuroraForecast;
+    return parsedData;
 
   } catch (error) {
     console.error("Error fetching from Gemini API:", error);

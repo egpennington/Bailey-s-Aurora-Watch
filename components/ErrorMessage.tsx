@@ -1,11 +1,6 @@
-
 import React from 'react';
 
-interface ErrorMessageProps {
-  message: string;
-}
-
-const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
+const ErrorMessage = ({ message }) => {
   return (
     <div className="w-full bg-red-900/50 border border-red-500 text-red-300 p-4 rounded-lg flex items-center space-x-3">
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

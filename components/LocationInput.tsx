@@ -1,15 +1,9 @@
-
 import React, { useState } from 'react';
 
-interface LocationInputProps {
-  onForecastRequest: (latitude: number, longitude: number) => void;
-  isLoading: boolean;
-}
-
-const LocationInput: React.FC<LocationInputProps> = ({ onForecastRequest, isLoading }) => {
+const LocationInput = ({ onForecastRequest, isLoading }) => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
   const handleGeolocation = () => {
     if (!navigator.geolocation) {
@@ -30,7 +24,7 @@ const LocationInput: React.FC<LocationInputProps> = ({ onForecastRequest, isLoad
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const latNum = parseFloat(latitude);
     const lonNum = parseFloat(longitude);

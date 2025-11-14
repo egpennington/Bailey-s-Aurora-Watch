@@ -1,18 +1,16 @@
-
 import React, { useState, useCallback } from 'react';
-import { AuroraForecast } from './types';
-import { getAuroraForecast } from './services/geminiService';
-import LocationInput from './components/LocationInput';
-import ForecastDisplay from './components/ForecastDisplay';
-import LoadingSpinner from './components/LoadingSpinner';
-import ErrorMessage from './components/ErrorMessage';
+import { getAuroraForecast } from './services/geminiService.ts';
+import LocationInput from './components/LocationInput.tsx';
+import ForecastDisplay from './components/ForecastDisplay.tsx';
+import LoadingSpinner from './components/LoadingSpinner.tsx';
+import ErrorMessage from './components/ErrorMessage.tsx';
 
-const App: React.FC = () => {
-  const [forecast, setForecast] = useState<AuroraForecast | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+const App = () => {
+  const [forecast, setForecast] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleForecastRequest = useCallback(async (latitude: number, longitude: number) => {
+  const handleForecastRequest = useCallback(async (latitude, longitude) => {
     setIsLoading(true);
     setError(null);
     setForecast(null);
@@ -30,7 +28,7 @@ const App: React.FC = () => {
     }
   }, []);
 
-  const WelcomeMessage: React.FC = () => (
+  const WelcomeMessage = () => (
     <div className="text-center p-8 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 shadow-lg">
       <h2 className="text-2xl font-bold text-teal-300 mb-2">Welcome to Aurora Watch</h2>
       <p className="text-gray-300">Enter your coordinates or use your current location to get the Northern Lights viewing forecast.</p>

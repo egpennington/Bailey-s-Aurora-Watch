@@ -1,13 +1,7 @@
 import React from 'react';
-import { AuroraForecast } from '../types';
-import GaugeChart from './GaugeChart';
+import GaugeChart from './GaugeChart.tsx';
 
-interface ForecastDisplayProps {
-  forecast: AuroraForecast;
-}
-
-// Fix: Changed icon type from JSX.Element to React.ReactNode to resolve "Cannot find namespace 'JSX'" error.
-const InfoCard: React.FC<{ title: string; value: string | number; unit: string; icon: React.ReactNode }> = ({ title, value, unit, icon }) => (
+const InfoCard = ({ title, value, unit, icon }) => (
   <div className="bg-gray-800/50 p-4 rounded-lg flex items-center space-x-4 border border-gray-700">
     <div className="text-teal-400">{icon}</div>
     <div>
@@ -20,7 +14,7 @@ const InfoCard: React.FC<{ title: string; value: string | number; unit: string; 
   </div>
 );
 
-const ForecastDisplay: React.FC<ForecastDisplayProps> = ({ forecast }) => {
+const ForecastDisplay = ({ forecast }) => {
   return (
     <div className="w-full bg-white/10 p-6 rounded-2xl shadow-lg border border-white/20 backdrop-blur-md animate-fade-in">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
